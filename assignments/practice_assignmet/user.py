@@ -29,12 +29,12 @@ class User:
             print('Not enough points!')
         else:
             self.gold_card_points -= amount
-        return self.gold_card_points
+        return self
 
 
 user_a = User('peter', 'an', 'peter@gmail.com', '36')
 user_b = User('esther', 'lee', 'esther@gmail.com', '30')
 user_a.enroll()
 user_a.spend_points(92)
-# user_a.display_info()
+user_a.display_info()
 # user_b.display_info()
