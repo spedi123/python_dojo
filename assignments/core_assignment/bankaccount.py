@@ -1,5 +1,9 @@
+from re import A
+
+
 class BankAccount:
     bank = 'bank of dojo'
+    all_accounts = []
 
     def __init__(self, balance=0, int_rate=0.01,):
         self.balance = balance
@@ -48,4 +52,5 @@ user_a.deposit(1000).deposit(3000).deposit(2000).withdraw(
     500).yield_interest().display_account_info()
 user_b.deposit(500).deposit(2000).withdraw(2200).withdraw(
     520).withdraw(1500).yield_interest().display_account_info()
-user_c.deposit(100).withdraw(3500).yield_interest().display_account_info()
+user_c.deposit(100).withdraw(3500).yield_interest(
+).display_account_info()
