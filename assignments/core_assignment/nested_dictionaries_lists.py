@@ -57,9 +57,9 @@ dojo = {
 
 def printInfo(dojo):
     for key in dojo:
-        print(len(dojo[key]), key)
+        print(len(dojo[key]), key.upper())
         for i in range(len(dojo[key])):
             print(dojo[key][i])
 
 
-# printInfo(dojo)
+printInfo(dojo)
