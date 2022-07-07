@@ -1,6 +1,3 @@
-from re import A
-
-
 class BankAccount:
     bank = 'bank of dojo'
     all_accounts = []
@@ -8,8 +5,10 @@ class BankAccount:
     def __init__(self, balance=0, int_rate=0.01,):
         self.balance = balance
         self.int_rate = int_rate
-        # your code here! (remember, instance attributes go here)
-        # don't worry about user info here; we'll involve the User class soon
+        BankAccount.all_accounts.append(self)
+    print(all_accounts)
+    # your code here! (remember, instance attributes go here)
+    # don't worry about user info here; we'll involve the User class soon
 
     def deposit(self, amount):
         self.balance += amount
@@ -42,6 +41,13 @@ class BankAccount:
     @classmethod
     def bank_account_info(cls, bank_name):
         cls.bank = bank_name
+
+    @classmethod
+    def all_balances(cls):
+        sum = 0
+        for account in cls.all_accounts:
+            sum += account.balance
+        return sum
 
 
 user_a = BankAccount(1000)
