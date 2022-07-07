@@ -22,7 +22,7 @@
 
 `distinguishing characteristics of the object`
 
-`the thigs that make up an object`
+`the things that make up an object`
 
 - make
 - mode
