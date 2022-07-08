@@ -25,7 +25,7 @@ pipenv shell
 6. create a server.py file
 
 ```py
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 # this is going to move in the future
 @app.route('/')
