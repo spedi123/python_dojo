@@ -1,0 +1,18 @@
+#row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+#box1, #box2 {
+    height: 100px;
+    width: 100px;
+}
+
+h1 {
+    text-align: center;
+    vertical-align: middle;
+    width: 800px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
