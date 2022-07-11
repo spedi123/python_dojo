@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Post and Session</title>
+    <title>Counter</title>
   </head>
   <body>
-    <h1>Here is your tracking data</h1>
-    <h3>Your Credit card number is: *** *** {{session['cardnumber']}}</h3>
+    <form action="/" method="post">
+      <h1>Counter</h1>
+      <h3>{{ count }} times</h3>
+      <button a="/addcount">Add Count</button>
+      <button a="/reset">Reset</button>
+    </form>
   </body>
 </html>

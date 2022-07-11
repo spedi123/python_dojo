@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
+app.secret_key = 'peteran'
 # this is going to move in the future
 
 
@@ -13,11 +14,16 @@ def hello_world():
 @app.route('/process_info', methods=['POST'])
 def process_info():
     print(f"You purchased {request.form['item']}")
+    session['cardnumber'] = str(request.form['card_number'])[-4:]
     return redirect('/tracking_info')
 
 
 @app.route('/tracking_info')
 def tracking_info():
+    print("Your Card Number is ")
+    if 'cardnumber' not in session:
+        return redirect('/')
+    # print(session['cardnumber'])
     return render_template('tracking.html')
 
 
