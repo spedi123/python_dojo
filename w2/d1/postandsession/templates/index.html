@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post and Session</title>
+  </head>
+  <body>
+    <h1>Post and Session</h1>
+    <form action="/process_info" method="post">
+      <label for="card_number">Card Number</label>
+      <input type="text" name="card_number" id="card_number" />
+      <label for="exp_date">EXP date</label>
+      <input type="text" name="exp_date" id="exp_date" />
+      <label for="item">Item</label>
+      <input type="text" name="item" id="item" />
+      <label for="price">Price</label>
+      <input type="text" name="price" id="price" />
+      <button a="/tracking_info">Submit</button>
+    </form>
+  </body>
+</html>
