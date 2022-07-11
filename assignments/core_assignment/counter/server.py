@@ -9,26 +9,35 @@ def counter():
     if 'count' in session:
         session['count'] += 1
     else:
-        session['count'] = 1
+        session['count'] = 0
     return render_template('index.html', count=session['count'])
 # end of moving area
 
 
 @app.route('/addcount', methods=['POST'])
 def addcount():
-    session['count'] += 1
+    # session['count'] += 1
+    # if 'count' in session:
+    #     session['count'] += 1
+    # else:
+    #     session['count'] = 1
+    return redirect('/')
+
+
+@app.route('/addtwo', methods=['POST'])
+def addtwo():
+    if 'count' in session:
+        session['count'] += 1
+    else:
+        session['count'] = 0
     return redirect('/')
 
 
 @app.route('/reset', methods=['POST'])
 def reset():
+    session.clear()
     session['count'] = 0
     return redirect('/')
-
-# @app.route('/', methods=['POST'])
-# def add_counter():
-#     print(request.form)
-#     return render_template('index.html')
 
 
 # this must be on the bottom of this file
