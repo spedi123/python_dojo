@@ -26,6 +26,7 @@ pipenv shell
 
 ```py
 from flask import Flask, render_template, request, redirect, session
+app = Flask(__name__)
 # this is going to move in the future
 @app.route('/')
 def hello_world():
