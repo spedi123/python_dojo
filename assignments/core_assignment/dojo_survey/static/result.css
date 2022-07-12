@@ -1,0 +1,23 @@
+.container {
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    border: 3px solid black;
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgb(51,57,61);
+}
+
+.button {
+    display:flex;
+    justify-content: center;
+}
+#home_button {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid white;
+    margin-top: 20px;
+    padding: 10px;
+}

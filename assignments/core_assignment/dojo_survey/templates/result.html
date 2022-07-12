@@ -5,17 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dojo Survey Index</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='/result.css')}}"
+    />
   </head>
   <body>
-    <div>
-      <h3>Submitted Info</h3>
+    <div class="container">
+      <h3>Information</h3>
       <div>
         <p>Name: {{ session['name'] }}</p>
         <p>Dojo Location: {{ session['location'] }}</p>
         <p>Favorite Language: {{ session['language'] }}</p>
         <p>Comment: {{ session['comment'] }}</p>
+        <p>Enjoying Dojo: {{ session['enjoy_question'] }}</p>
+        <p>Class: {{ session['class'] }}</p>
       </div>
-      <a href="/">Go Back</a>
+      <div class="button">
+        <a id="home_button" href="/">Go Back</a>
+      </div>
     </div>
   </body>
 </html>

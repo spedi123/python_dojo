@@ -11,7 +11,6 @@ def hello_world():
 
 @app.route('/process', methods=['POST'])
 def survey_info():
-    print(request.form)
     for key in request.form:
         session[key] = request.form[key]
     return redirect('/result')
