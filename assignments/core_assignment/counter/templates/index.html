@@ -4,19 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
     <title>Counter</title>
+    <style>
+      h1,
+      h3 {
+        text-align: center;
+      }
+      .grid {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+      }
+    </style>
   </head>
   <body>
     <h1>Counter</h1>
     <h3>{{ session.count }} times</h3>
-    <form action="/addcount" method="post">
-      <button a="/addcount">Add Count</button>
-    </form>
-    <form action="/addtwo" method="post">
-      <button a="/addtwo">Add +2</button>
-    </form>
-    <form action="/reset" method="post">
-      <button a="/reset">Reset</button>
-    </form>
+    <div class="grid">
+      <div class="g-col-4">
+        <form action="/addcount" method="post">
+          <button type="submit" class="btn btn-warning" a="/addcount">
+            Add Count
+          </button>
+        </form>
+      </div>
+      <div class="g-col-4">
+        <form action="/addtwo" method="post">
+          <button type="submit" class="btn btn-info" a="/addtwo">Add +2</button>
+        </form>
+      </div>
+      <div class="g-col-4">
+        <form action="/reset" method="post">
+          <button type="submit" class="btn btn-danger" a="/reset">Reset</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
