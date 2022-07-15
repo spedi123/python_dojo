@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taxi Co</title>
+  </head>
+  <body>
+    <h1>taxi</h1>
+    <table>
+      <tr>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>email</th>
+        <th>phone_num</th>
+        <th>level</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+      </tr>
+      <tr>
+        {% for driver in all_drivers %}
+        <td>{{ driver.first_name }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        {% endfor %}
+      </tr>
+    </table>
+  </body>
+</html>
