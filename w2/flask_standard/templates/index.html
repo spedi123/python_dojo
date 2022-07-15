@@ -8,23 +8,30 @@
   </head>
   <body>
     <h1>Friends List</h1>
+    <h3>Add friends</h3>
+    <form action="/friend/add" method="post">
+      <label for="fname">First Name:</label>
+      <input type="text" name="fname" />
+      <label for="lname">Last Name:</label>
+      <input type="text" name="lname" />
+      <label for="occ">Occupation:</label>
+      <input type="text" name="occ" />
+      <input type="submit" value="Add Friend" />
+    </form>
+    <br />
     <table>
       <tr>
         <th>first_name</th>
         <th>last_name</th>
         <th>Occupation</th>
-        <th>created_at</th>
-        <th>updated_at</th>
       </tr>
+      {% for friend in friends %}
       <tr>
-        {% for friend in friends %}
         <td>{{ friend.first_name }}</td>
         <td>{{ friend.last_name }}</td>
         <td>{{ friend.occupation }}</td>
-        <td>{{ friend.created_at }}</td>
-        <td>{{ friend.updated_at }}</td>
-        {% endfor %}
       </tr>
+      {% endfor %}
     </table>
   </body>
 </html>
