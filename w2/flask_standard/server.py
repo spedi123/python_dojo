@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request, session
 # import the class from friend.py
 from friend import Friend
 app = Flask(__name__)
+app.secret_key = "peteran is here"
 
 
 @app.route("/")
