@@ -16,22 +16,32 @@
       crossorigin="anonymous"
     />
     <title>Create User</title>
+    <style>
+      h1 {
+        margin-top: 50px;
+        text-align: center;
+      }
+      div {
+        font-size: 20px;
+        background-color: aliceblue;
+        width: 500px;
+        height: 300px;
+        border: 3px solid black;
+        margin: 50px auto;
+        padding: 50px;
+      }
+    </style>
   </head>
   <body>
     <a href="/users" class="home_button">Home</a>
-    <form action="/users/new" method="post">
-      <div id="create_box">
-        <h1>Add a New User</h1>
-        <label for="first_name">First Name</label>
-        <input class="form-control" type="text" name="first_name" />
-        <label for="last_name">Last Name</label>
-        <input class="form-control" type="text" name="last_name" />
-        <label for="email">Email</label>
-        <input class="form-control" type="text" name="email" />
-        <button id="button" type="submit">Create</button>
-        <br />
-        <a href="/users">Go Back</a>
-      </div>
-    </form>
+    <h1>User {{ user.id }}</h1>
+    <div>
+      <p>Full Name : {{ user.full_name() }}</p>
+      <p>Email : {{ user.email }}</p>
+      <p>Created_at : {{ user.created_at }}</p>
+      <p>Updated_at : {{ user.updated_at }}</p>
+      <a href="/users/edit/{{user.id}}">Edit</a> |
+      <a href="/users/delete/{{user.id}}">Delete</a>
+    </div>
   </body>
 </html>

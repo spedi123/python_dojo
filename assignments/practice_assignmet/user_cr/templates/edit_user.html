@@ -19,18 +19,34 @@
   </head>
   <body>
     <a href="/users" class="home_button">Home</a>
-    <form action="/users/new" method="post">
+    <form action="/users/update" method="post">
       <div id="create_box">
-        <h1>Add a New User</h1>
+        <h1>Update information ID {{ user.id }}</h1>
+        <input type="hidden" name="id" value="{{ user.id }}" />
         <label for="first_name">First Name</label>
-        <input class="form-control" type="text" name="first_name" />
+        <input
+          class="form-control"
+          type="text"
+          name="first_name"
+          placeholder="{{user.first_name}}"
+        />
         <label for="last_name">Last Name</label>
-        <input class="form-control" type="text" name="last_name" />
+        <input
+          class="form-control"
+          type="text"
+          name="last_name"
+          placeholder="{{user.last_name}}"
+        />
         <label for="email">Email</label>
-        <input class="form-control" type="text" name="email" />
-        <button id="button" type="submit">Create</button>
+        <input
+          class="form-control"
+          type="text"
+          name="email"
+          placeholder="{{ user.email }}"
+        />
+        <button id="button" type="submit">Update</button>
         <br />
-        <a href="/users">Go Back</a>
+        <a href="/users/detail/{{user.id}}">Show Users</a>
       </div>
     </form>
   </body>
