@@ -11,7 +11,7 @@ pip3 install pipenv
 3. Create your virtual env
 
 ```
-pipenv install flask PyMySQL
+pipenv install flask PyMySQL flask-bcrpyt
 ```
 
 4.'Warnging' check for the files "pipfile" and "pipfile.lock" - if you don't see these you need ti fix it.
