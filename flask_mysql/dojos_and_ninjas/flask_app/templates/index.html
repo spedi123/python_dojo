@@ -18,16 +18,16 @@
     <form action="/savedojo" method="post">
       <div class="container">
         <div class="col1">
-          <h1>New Dojo</h1>
+          <h1 class="col_title">New Dojo</h1>
           <div class="form-group">
             <label>Name:</label><br />
             <input type="text" class="form-control" name="name" id="name" />
           </div>
-          <button type="submit">Create</button>
+          <button type="submit" id="create_button">Create</button>
         </div>
 
         <div class="col2">
-          <h1>All Dojos</h1>
+          <h1 class="col_title">All Dojos</h1>
           <ul>
             {% for user in users %}
             <li>
