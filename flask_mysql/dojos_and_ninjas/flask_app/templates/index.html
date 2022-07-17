@@ -31,11 +31,11 @@
           <ul>
             {% for user in users %}
             <li>
-              <a href="">{{ user.name }}</a>
+              <a href="/dojos/{{user.id}}">{{ user.name }}</a>
             </li>
             {% endfor %}
           </ul>
-          <a href="">Add Ninja</a>
+          <a href="/ninjas">Add Ninja</a>
         </div>
       </div>
     </form>

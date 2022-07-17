@@ -13,9 +13,6 @@ class Ninjas:
         self.updated_at = data['updated_at']
     # Now we use class methods to query our database
 
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"
-
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM ninjas;"
@@ -30,6 +27,7 @@ class Ninjas:
 
     @classmethod
     def save(cls, data):
-        query = "INSERT INTO ninjas ( first_name , last_name , email) VALUES ( %(first_name)s , %(last_name)s , %(email)s);"
+        query = "INSERT INTO ninjas ( first_name , last_name , age, dojo_id) VALUES ( %(first_name)s, %(last_name)s, %(age)s, %(dojo_id)s);"
         # data is a dictionary that will be passed into the save method from server.py
-        return connectToMySQL('dojos_and_ninjas_schema').query_db(query, data)
+        connectToMySQL('dojos_and_ninjas_schema').query_db(query, data)
+        return data['dojo_id']
