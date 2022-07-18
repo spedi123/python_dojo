@@ -36,3 +36,9 @@ a {
     position: absolute;
     left: 170px;
 }
+
+#th {
+    color: rgb(244,184,14);
+}
+
+#td {color:white;}

@@ -25,11 +25,13 @@
         <h1 class="col_title">All Authros</h1>
         <ul>
           {% for author in authors %}
-          <a href="">{{ author.name }}</a>
+          <li>
+            <a href="">{{ author.name }}</a>
+          </li>
           {% endfor %}
         </ul>
       </div>
     </div>
-    <a href="" id="add_button">Add Book</a>
+    <a href="/books" id="add_button">Add Book</a>
   </body>
 </html>

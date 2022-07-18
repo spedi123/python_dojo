@@ -28,3 +28,13 @@ def author_detail(id):
     print(author)
     print(books)
     return render_template('author_detail.html', author=author, books=books)
+
+
+@app.route("/authors/favorite/<int:author_id>", methods=['POST'])
+def add_favorite_books(author_id):
+    data = {
+        'author_id': author_id,
+        'book_id': request.form['book']
+    }
+    Authors.save_favorites(data)
+    return redirect(f"/authors/{author_id}")
