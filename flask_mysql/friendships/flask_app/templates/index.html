@@ -26,46 +26,56 @@
             <th scope="col" id="th">User</th>
             <th scope="col" id="th">Friend</th>
           </tr>
+          {% for friendship in friendships %}
           <tr>
-            <td id="td">user</td>
-            <td id="td">friend</td>
+            <td id="td">{{ friendship['User'] }}</td>
+            <td id="td">{{ friendship['Friend']}}</td>
           </tr>
+          {%  endfor %}
           </table>
       </div>
       <div class="col2">
         <div class="col2_1">
-          <h1 class="col_title">Add User</h1>
-          <label>First name:</label><br />
-          <input
-            type="text"
-            class="form-control"
-            name="first_name"
-            id="first_name"
-          /><br />
-          <label>Last name:</label><br />
-          <input
-            type="text"
-            class="form-control"
-            name="last_name"
-            id="last_name"
-          /><br />
-          <button type="submit" id="add_button">Add User</button>
+          <form action="/add_user" method="post">
+            <h1 class="col_title">Add User</h1>
+            <label>First name:</label><br />
+            <input
+              type="text"
+              class="form-control"
+              name="first_name"
+              id="first_name"
+            /><br />
+            <label>Last name:</label><br />
+            <input
+              type="text"
+              class="form-control"
+              name="last_name"
+              id="last_name"
+            /><br />
+            <button type="submit" id="add_button">Add User</button>
+          </form>
         </div>
         <div class="col2_2">
-          <h1 class="col_title">Create Friendship</h1>
-          <label>User:</label>
-          <div>
-            <select name="dojo_id" id="dojo_id">
-              <option id="option" value="name">name</option>
-            </select>
-          </div><br />
-          <label>Friend:</label>
-          <div>
-            <select name="dojo_id" id="dojo_id">
-              <option id="option" value="name">name</option>
-            </select>
-          </div><br />
-          <button type="submit" id="add_button">Create</button>
+          <form action="/add_friendship" method="post">
+            <h1 class="col_title">Create Friendship</h1>
+            <label>User:</label>
+            <div>
+              <select name="user" id="user">
+                {% for user in users %}
+                <option id="option" value="{{user['id']}}">{{user['name']}}</option>
+                {% endfor %}
+              </select>
+            </div><br />
+            <label>Friend:</label>
+            <div>
+              <select name="friend" id="friend">
+                {% for user in users %}
+                <option id="option" value="{{user['id']}}">{{user['name']}}</option>
+                {% endfor %}
+              </select>
+            </div><br />
+            <button type="submit" id="add_button">Create</button>
+          </form>
         </div>
   </body>
 </html>

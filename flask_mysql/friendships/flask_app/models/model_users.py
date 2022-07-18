@@ -22,7 +22,7 @@ class Users:
 
     @classmethod
     def add_friendship(cls, data):
-        query = "INSERT INTO friendship (user_id, friend_id) VALUES(%(user_id)s, %(friend_id)s)"
+        query = "INSERT INTO friendships (user_id, friend_id) VALUES(%(user_id)s, %(friend_id)s)"
         return connectToMySQL('friendships_schema').query_db(query, data)
 
     @classmethod
@@ -32,7 +32,7 @@ class Users:
                     concat(user2.first_name, ' ', user2.last_name) as Friend 
                     FROM users as user1 
                     LEFT JOIN friendships ON user1.id = friendships.user_id 
-                    JOIN users as user2 ON friendship.friend_id = user2.id 
+                    JOIN users as user2 ON friendships.friend_id = user2.id 
                     ORDER BY User;
                 """
         return connectToMySQL('friendships_schema').query_db(query)

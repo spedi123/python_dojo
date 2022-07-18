@@ -10,30 +10,23 @@ def home():
     return render_template("index.html", friendships=friendships, users=users)
 
 
-# @app.route("/authors/save", methods=['POST'])
-# def save_author():
-#     data = {
-#         'name': request.form['name']
-#     }
-#     Friends.save(data)
-#     return redirect("/authors")
+@app.route("/add_user", methods=['POST'])
+def add_user():
+    data = {
+        'first_name': request.form['first_name'],
+        'last_name': request.form['last_name']
+    }
+    Users.save(data)
+    return redirect('/')
 
 
-# @app.route("/authors/<int:id>")
-# def author_detail(id):
-#     data = {'id': id}
-#     author = Friends.get_author_books(data)
-#     books = Books.get_all()
-#     print(author)
-#     print(books)
-#     return render_template('author_detail.html', author=author, books=books)
-
-
-# @app.route("/authors/favorite/<int:author_id>", methods=['POST'])
-# def add_favorite_books(author_id):
-#     data = {
-#         'author_id': author_id,
-#         'book_id': request.form['book']
-#     }
-#     Friends.save_favorites(data)
-#     return redirect(f"/authors/{author_id}")
+@app.route("/add_friendship", methods=['POST'])
+def add_friendship():
+    if request.form['user'] == request.form['friend']:
+        return redirect('/')
+    data = {
+        'user_id': request.form['user'],
+        'friend_id': request.form['friend']
+    }
+    Users.add_friendship(data)
+    return redirect('/')
