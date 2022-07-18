@@ -13,6 +13,4 @@ def add_new_ninja():
 @app.route("/ninjas/add_ninja", methods=['POST'])
 def add_ninja():
     dojo_id = Ninjas.save(request.form)
-    print(request.form)
-    print(dojo_id)
     return redirect(f"/dojos/{dojo_id}")
