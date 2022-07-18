@@ -9,6 +9,7 @@ class Books:
         self.num_of_pages = data['num_of_pages']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.favorited_by = []
 
     @classmethod
     def get_all(cls):
@@ -26,20 +27,21 @@ class Books:
 
     @classmethod
     def get_book_authors(cls, data):
-        query = "SELECT * FROM books LEFT JOIN favorites ON books.id = favorites.book_id LEFT JOIN authors ON authors.id = favorites.author_id WHERE books.id = %(book_id)s"
+        query = "SELECT * FROM books LEFT JOIN favorites ON books.id = favorites.book_id LEFT JOIN authors ON authors.id = favorites.author_id WHERE books.id = %(id)s"
         results = connectToMySQL(
             'books_schema').query_db(query, data)
         book = cls(results[0])
-        book_authors = []
         for author in results:
             author_data = {
                 "id": author['id'],
-                "title": author['title'],
-                "num_of_pages": author['num_of_pages'],
+                "name": author['name'],
                 "created_at": author['created_at'],
-                "updated_at": author['updated_at'],
-                "author_id": author['author_id']
+                "updated_at": author['updated_at']
             }
-            book_authors.append(Authors(author_data))
-        book.authors = book_authors
+            book.favorited_by.append(model_authors.Authors(author_data))
         return book
+
+    @classmethod
+    def save_favorites(cls, data):
+        query = "INSERT INTO favorites(author_id, book_id) VALUES (%(author_id)s, %(book_id)s);"
+        return connectToMySQL('books_schema').query_db(query, data)

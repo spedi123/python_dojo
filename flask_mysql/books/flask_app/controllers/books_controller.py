@@ -18,3 +18,21 @@ def save_book():
     }
     Books.save(data)
     return redirect("/books")
+
+
+@app.route("/books/<int:id>")
+def book_detail(id):
+    data = {'id': id}
+    book = Books.get_book_authors(data)
+    authors = Authors.get_all()
+    return render_template('book_detail.html', book=book, authors=authors)
+
+
+@app.route("/books/favorite/<int:book_id>", methods=['POST'])
+def add_favorite_authors(book_id):
+    data = {
+        'author_id': request.form['author'],
+        'book_id': book_id
+    }
+    Authors.save_favorites(data)
+    return redirect(f"/books/{book_id}")
