@@ -1,0 +1,40 @@
+form {
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    border: 3px solid black;
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgb(51,57,61);
+}
+
+h1 {
+    color:rgb(179,140,42);
+}
+
+.form-control {
+    height: 25px;
+    width: 400px;
+    border: 2px solid black;
+    padding: 0px;
+}
+
+button {
+    position: relative;
+    color: red;
+    text-align: center;
+    border: 2px solid black;
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 3px 3px 0px black;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+#comment {
+    height: 100px;
+}
