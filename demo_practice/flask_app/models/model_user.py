@@ -19,6 +19,7 @@ class User:
         self.pw = data['pw']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.fullname = f"{self.first_name.capitalize()} {self.last_name.capitalize()}"
 
 # C
 
@@ -121,15 +122,15 @@ class User:
         else:
             potential_user = User.get_one_by_email({'email': data['email']})
             if not potential_user:
-                flash('Invalid Credentials', 'err_users_email_login')
+                flash('Invalid Credentials!', 'err_users_email_login')
                 is_valid = False
             # check the hash
             elif not bcrypt.check_password_hash(potential_user.pw, data['pw']):
-                flash('Invalid Credentials', 'err_users_email_login')
+                flash('Invalid Credentials!!!', 'err_users_email_login')
                 is_valid = False
             else:
                 # store the id into session
-                session['uuid'] = potential_user
+                session['uuid'] = potential_user.id
 
         if len(data['pw']) < 1:
             flash('field is required', 'err_users_pw_login')

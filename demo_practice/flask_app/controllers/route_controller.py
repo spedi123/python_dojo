@@ -1,5 +1,8 @@
+from flask_app import app
 from flask import render_template, request, redirect, session
-from flask_app import app, bcrypt
+
+
+from flask_app.models import model_instrument
 
 
 @app.route('/')
@@ -10,7 +13,11 @@ def index():
 
 
 @app.route('/dashboard')
-def index1():
+def dashboard():
     if 'uuid' not in session:
         return redirect('/')
-    return render_template('dash_board.html')
+
+    context = {
+        'all_instruments': model_instrument.Instrument.get_all()
+    }
+    return render_template('dash_board.html', **context)

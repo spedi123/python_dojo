@@ -8,9 +8,14 @@ from flask_app.models import model_user
 @app.route('/user/login', methods=['POST'])
 def user_new():
     # validate
-    if not model_user.User.validator_login(request.form):
-        return redirect('/')
-    return render_template('user_new.html')
+    model_user.User.validator_login(request.form)
+    return redirect('/')
+
+
+@app.route('/user/logout')
+def logout_user():
+    del session['uuid']
+    return redirect('/')
 
 
 @app.route('/user/create', methods=['POST'])

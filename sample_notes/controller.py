@@ -15,20 +15,20 @@ def table_name_create():
 
 
 @app.route('/table_name/<int:id>')
-def table_name_show():
+def table_name_show(id):
     return render_template('table_name_show.html')
 
 
 @app.route('/table_name/<int:id>/edit')
-def table_name_edit():
+def table_name_edit(id):
     return render_template('table_name_edit.html')
 
 
 @app.route('/table_name/<int:id>/update', methods=['POST'])
-def table_name_update():
+def table_name_update(id):
     return redirect('/')
 
 
 @app.route('/table_name/<int:id>/delete')
-def table_name_delete():
+def table_name_delete(id):
     return redirect('/')
