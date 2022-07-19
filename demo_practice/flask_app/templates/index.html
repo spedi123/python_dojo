@@ -30,8 +30,16 @@
           <form action="/user/login" method="post">
             <label for="email">Email</label>
             <input class="form-control" type="text" name="email" id="email" />
+            {% for message in
+            get_flashed_messages(category_filter=["err_users_email_login"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
             <label for="pw">pw</label>
             <input class="form-control" type="text" name="pw" id="pw" />
+            {% for message in
+            get_flashed_messages(category_filter=["err_users_pw_login"]) %}
+            <p class="alert alert-danger">{{ message }}</p>
+            {% endfor %}
             <button class="btn btn-success">Login</button>
           </form>
         </div>

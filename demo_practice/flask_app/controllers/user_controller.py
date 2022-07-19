@@ -1,11 +1,15 @@
+import re
 from flask import render_template, request, redirect, session
 from flask_app import app, bcrypt
 # This imports the model file
 from flask_app.models import model_user
 
 
-@app.route('/user/login')
+@app.route('/user/login', methods=['POST'])
 def user_new():
+    # validate
+    if not model_user.User.validator_login(request.form):
+        return redirect('/')
     return render_template('user_new.html')
 
 
@@ -16,11 +20,16 @@ def user_create():
         return redirect('/')
 
     # hasing
-
+    hash_pw = bcrypt.generate_password_hash(request.form['pw'])
+    data = {
+        **request.form,
+        'pw': hash_pw
+    }
     # create my user
-
+    id = model_user.User.create(data)
     # store user_id in session
-    return redirect('/')
+    session['uuid'] = id
+    return redirect('/dashboard')
 
 
 @app.route('/user/<int:id>')
