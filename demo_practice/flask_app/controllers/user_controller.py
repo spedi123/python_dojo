@@ -12,12 +12,6 @@ def user_new():
     return redirect('/')
 
 
-@app.route('/user/logout')
-def logout_user():
-    del session['uuid']
-    return redirect('/')
-
-
 @app.route('/user/create', methods=['POST'])
 def user_create():
     # validations
