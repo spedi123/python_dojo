@@ -77,12 +77,14 @@ class User:
     def validator(data: dict) -> bool:
         is_valid = True
 
-        if len(data['first_name']) < 1:
-            flash('field is required', 'err_users_first_name')
+        if len(data['first_name']) < 2:
+            flash('First name must be at least 2 characters.',
+                  'err_users_first_name')
             is_valid = False
 
-        if len(data['last_name']) < 1:
-            flash('field is required', 'err_users_last_name')
+        if len(data['last_name']) < 2:
+            flash('Last name must be at least 2 characters.',
+                  'err_users_last_name')
             is_valid = False
 
         if len(data['email']) < 1:

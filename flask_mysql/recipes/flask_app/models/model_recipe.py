@@ -39,6 +39,15 @@ class Recipe:
             return cls(results[0])
         return False
 
+    # @classmethod
+    # def get_all(cls):
+    #     query = "SELECT * FROM recipes;"
+    #     results = connectToMySQL(DATABASE).query_db(query)
+    #     all_recipes = []
+    #     for recipe in results:
+    #         all_recipes.append(cls(recipe))
+    #     return all_recipes
+
     @classmethod
     def get_all(cls) -> list:
         query = "SELECT * FROM recipes JOIN users ON users.id = recipes.user_id;"
@@ -51,11 +60,10 @@ class Recipe:
                     'id': dict['users.id'],
                     'created_at': dict['users.created_at'],
                     'updated_at': dict['users.updated_at'],
-                    'name': dict['name'],
-                    'description': dict['description'],
-                    'instruction': dict['instruction'],
-                    'date_made': dict['date_made'],
-                    'under_thirty': dict['under_thirty']
+                    'first_name': dict['first_name'],
+                    'last_name': dict['last_name'],
+                    'email': dict['email'],
+                    'pw': dict['pw']
                 }
                 user = model_user.User(user_data)
                 recipe.cooker = user
@@ -83,24 +91,18 @@ class Recipe:
     def validator(data: dict) -> bool:
         is_valid = True
 
-        if len(data['name']) < 1:
-            flash('field is required', 'err_recipes_name')
+        if len(data['name']) < 3:
+            flash('Name must be at least 3 characters', 'err_recipes_name')
             is_valid = False
 
-        if len(data['description']) < 1:
-            flash('field is required', 'err_recipes_description')
+        if len(data['description']) < 3:
+            flash('Description must be at least 3 characters',
+                  'err_recipes_description')
             is_valid = False
 
-        if len(data['instruction']) < 1:
-            flash('field is required', 'err_recipes_instruction')
-            is_valid = False
-
-        if len(data['date_made']) < 1:
-            flash('field is required', 'err_recipes_date_made')
-            is_valid = False
-
-        if len(data['under_thirty']) < 1:
-            flash('field is required', 'err_recipes_under_thirty')
+        if len(data['instruction']) < 3:
+            flash('Instruction must be at least 3 characters',
+                  'err_recipes_instruction')
             is_valid = False
 
         return is_valid
