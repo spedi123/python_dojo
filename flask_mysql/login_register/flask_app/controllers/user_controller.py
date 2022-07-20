@@ -13,7 +13,7 @@ def index():
 def user_new():
     # validate
     model_user.User.validator_login(request.form)
-    return redirect('/')
+    return redirect('/loginpage')
 
 
 @app.route('/user/logout')
@@ -34,35 +34,11 @@ def user_create():
     }
 
     id = model_user.User.create(data)
-    # store user_id in session
     session['uuid'] = id
     return redirect('/loginpage')
 
 
 @app.route('/loginpage')
 def loginpage():
-    return render_template('login_page.html')
-
-# @app.route('/users/create', methods=['POST'])
-# def table_name_create():
-#     return redirect('/')
-
-
-# @app.route('/users/<int:id>')
-# def table_name_show(id):
-#     return render_template('table_name_show.html')
-
-
-# @app.route('/users/<int:id>/edit')
-# def table_name_edit(id):
-#     return render_template('table_name_edit.html')
-
-
-# @app.route('/users/<int:id>/update', methods=['POST'])
-# def table_name_update(id):
-#     return redirect('/')
-
-
-# @app.route('/users/<int:id>/delete')
-# def table_name_delete(id):
-#     return redirect('/')
+    user = model_user.User.get_one({'id': session['uuid']})
+    return render_template('login_page.html', user=user)

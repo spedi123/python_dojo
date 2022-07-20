@@ -76,12 +76,20 @@ class User:
     def validator(data: dict) -> bool:
         is_valid = True
 
-        if len(data['first_name']) < 1:
-            flash('field is required', 'err_users_first_name')
+        if len(data['first_name']) < 2:
+            flash('First name must be at least 2 characters.',
+                  'err_users_first_name')
+            is_valid = False
+        elif not data['first_name'].isalpha():
+            flash("Must be just letters.", 'err_users_first_name')
             is_valid = False
 
-        if len(data['last_name']) < 1:
-            flash('field is required', 'err_users_last_name')
+        if len(data['last_name']) < 2:
+            flash('Last name must be at least 2 characters.',
+                  'err_users_last_name')
+            is_valid = False
+        elif not data['last_name'].isalpha():
+            flash("Must be just letters.", 'err_users_last_name')
             is_valid = False
 
         if len(data['email']) < 1:
@@ -96,8 +104,8 @@ class User:
                 flash('Email already in use', 'err_users_email')
                 is_valid = False
 
-        if len(data['pw']) < 5:
-            flash('Password must be at least 5 characters.', 'err_users_pw')
+        if len(data['pw']) < 8:
+            flash('Password must be at least 8 characters.', 'err_users_pw')
             is_valid = False
 
         if len(data['confirm_pw']) < 1:
