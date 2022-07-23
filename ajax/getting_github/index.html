@@ -7,9 +7,19 @@
     <title>Github</title>
   </head>
   <body>
-    <button onclick="getCoderData()">Click to Git User</button>
     <div id="github_user">
       <h1>Show me the User</h1>
+    </div>
+    <button onclick="getCoderData()">Click to Git User</button>
+    <p>...............................</p>
+    <form class="userForm">
+      <p>Searhing Gituser</p>
+      <input type="text" name="githubUser" id="githubUser" />
+      <button>Find User</button>
+    </form>
+    <div>
+      <h2 class="userId"></h2>
+      <div class="userImg"></div>
     </div>
     <script src="/ajax/getting_github/sript.js"></script>
   </body>
