@@ -11,9 +11,9 @@
     <header>
       <div id="header">
         <h1>DojoWeather</h1>
-        <a href="#" onclick="alert('Loading weather report...')">Burbank</a>
-        <a href="#" onclick="alert('Loading weather report...')">Chicago</a>
-        <a href="#" onclick="alert('Loading weather report...')">Dallas</a>
+        <a href="#" onclick="get_city_weather(event, 'burbank')">Burbank</a>
+        <a href="#" onclick="get_city_weather(event, 'chicago')">Chicago</a>
+        <a href="#" onclick="get_city_weather(event, 'dallas')">Dallas</a>
       </div>
     </header>
     <div id="city">
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div id="forecast">
-      <div class="forecast-detail">
+      <div class="forecast-detail forcast_today">
         <p>Today</p>
         <img src="./assets/some_rain.png" alt="some_rain" />
         <p>some rain</p>
@@ -76,6 +76,6 @@
       </div>
       <button class="btn" onclick="cookieDelete()">I Accept</button>
     </div>
-    <script src="script.js"></script>
+    <script src="/ajax/dojo_weather/script.js"></script>
   </body>
 </html>
