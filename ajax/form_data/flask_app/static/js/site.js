@@ -1,6 +1,6 @@
 
 function getUsers(){
-    fetch('http://localhost:5000/users')
+    fetch('http://127.0.0.1:5000/users')
         .then(res =>  res.json())
         .then(data => {
             var users = document.getElementById('users');
@@ -20,4 +20,18 @@ function getUsers(){
 
 }
 getUsers();
+
+var myForm = document.querySelector('#myForm')
+myForm.addEventListener(submit, function(e){
+    e.preventDefault()
+    var form = new FormData(myForm)
+    fetch('http://127.0.0.1:5000/create/user', {
+        method: 'post',
+        body: form
+    })
+    .then(res =>  res.json())
+    .then(data => {
+        console.log(data)
+    })
+})
 

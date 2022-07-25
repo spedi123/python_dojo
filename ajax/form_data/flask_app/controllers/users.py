@@ -1,6 +1,8 @@
+import re
 from flask_app.models.user import User
 from flask_app import app
 from flask import render_template, jsonify, request, redirect
+
 
 @app.route('/')
 def index():
@@ -11,10 +13,15 @@ def index():
 def users():
     return jsonify(User.get_all_json())
 
-@app.route('/create/user',methods=['POST'])
+
+@app.route('/create/user', methods=['POST'])
 def create_user():
-    
-    pass
-
-
-
+    data = {
+        'user_name': request.form['user_name'],
+        'email': request.form['email']
+    }
+    User.save(data)
+    res_data = {
+        'msg': 'success!',
+    }
+    return jsonify(res_data)
