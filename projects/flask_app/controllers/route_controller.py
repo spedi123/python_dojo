@@ -7,8 +7,8 @@ from flask import render_template, request, redirect, session
 
 @app.route('/')
 def index():
-    # if 'uuid' in session:
-    #     return redirect('/dashboard')
+    if 'uuid' in session:
+        return redirect('/dashboard')
     return render_template('index.html')
 
 
@@ -17,4 +17,4 @@ def dashboard():
     if 'uuid' not in session:
         return redirect('/')
 
-    return render_template('dash_board.html')
+    return render_template('cocktail_list.html')
