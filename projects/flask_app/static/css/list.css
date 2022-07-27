@@ -3,19 +3,17 @@
 }
 
 .wrap {
-    width: 900px;
+    width: 1200px;
     margin: auto;
 }
 
-.comment {
-    color: blue;
-    font-weight: bold;
+#card-list {
+    overflow: scroll;
 }
 
-#post-box {
-    width: 500px;
-    margin: 20px auto;
-    padding: 50px;
-    border: black solid;
-    border-radius: 5px;
+.card {
+    overflow:scroll;
+    height: 600px;
+    float: left;
+    margin: 10px 5px;
 }
