@@ -18,7 +18,6 @@ function get_cocktail_list(value) {
                         if (key2.includes('strIngredient')) {
                             ingredients.push(drink[key2])
                         }
-                        
                     }
                     console.log(ingredients)
                 }
