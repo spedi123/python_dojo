@@ -1,3 +1,5 @@
+let value = 'a'
+get_cocktail_list(value)
 
 function get_cocktail_list(value) {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${value}`)
