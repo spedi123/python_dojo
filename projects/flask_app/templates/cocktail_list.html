@@ -17,19 +17,20 @@
       type="text/css"
       href="{{ url_for('static',filename='/css/list.css') }}"
     />
-    <title>Document</title>
+    <title>Cocktail</title>
   </head>
   <body>
     <div class="wrap">
         <div class="jumbotron">
             <h1 class="display-4">Today's Cocktail!</h1>
+            <a href="/logout" class="logout">Logout</a>
             <p class="lead">Recommend good cocktail recipe...</p>
             <hr class="my-4">
             <p>After work, you should enjoy your life with one glass of cocktail..</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Add My Cocitail List</a>
+            <a class="btn btn-primary btn-lg" href="/cocktail/mylist" role="button">My Cocktail List</a>
           </div>
           <div class="alphabet">
-            <button class="onload" onclick="get_cocktail_list(value)" value="a">A</button>
+            <button onclick="get_cocktail_list(value)" value="a">A</button>
             <button onclick="get_cocktail_list(value)" value="b">B</button>
             <button onclick="get_cocktail_list(value)" value="c">C</button>
             <button onclick="get_cocktail_list(value)" value="d">D</button>

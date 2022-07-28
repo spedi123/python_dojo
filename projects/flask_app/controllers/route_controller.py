@@ -9,7 +9,7 @@ from flask import render_template, request, redirect, session
 def index():
     if 'uuid' in session:
         return redirect('/dashboard')
-    return render_template('index.html')
+    return render_template('login.html')
 
 
 @app.route('/dashboard')

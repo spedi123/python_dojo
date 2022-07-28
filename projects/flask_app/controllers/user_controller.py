@@ -37,21 +37,21 @@ def user_create():
     return redirect('/dashboard')
 
 
-@app.route('/user/<int:id>')
-def user_show():
-    return render_template('user_show.html')
+# @app.route('/user/<int:id>')
+# def user_show():
+#     return render_template('user_show.html')
 
 
-@app.route('/user/<int:id>/edit')
-def user_edit():
-    return render_template('user_edit.html')
+# @app.route('/user/<int:id>/edit')
+# def user_edit():
+#     return render_template('user_edit.html')
 
 
-@app.route('/user/<int:id>/update', methods=['POST'])
-def user_update():
-    return redirect('/')
+# @app.route('/user/<int:id>/update', methods=['POST'])
+# def user_update():
+#     return redirect('/')
 
 
-@app.route('/user/<int:id>/delete')
-def user_delete():
-    return redirect('/')
+# @app.route('/user/<int:id>/delete')
+# def user_delete():
+#     return redirect('/')

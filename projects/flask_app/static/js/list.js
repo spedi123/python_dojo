@@ -8,8 +8,6 @@ function get_cocktail_list(value) {
         .then((data) => {
             let card_list = document.querySelector('#card_list')
             card_list.innerHTML = ''
-            let card_ingredient = document.querySelector('.card_ingredient')   
-            // let ingredients = []
             for (const key in data.drinks) {
                 let drink = data.drinks[key]
                 let img = drink.strDrinkThumb
@@ -31,9 +29,17 @@ function get_cocktail_list(value) {
                     <p class="card-instruction">${instruction}</p>
                     <p class="card_ingredient">${ingredients} </p>
                     <a href="#" class="btn btn-primary">View</a>
+                    <button id="save_list" class="btn btn-primary">Save My List</button>
                 </div>
                 `
             }
         })
         .catch(err => console.log(err) )   
 }
+
+var save_list =  document.querySelector('#save_list')
+
+save_list.addEventListener('click', function(e){
+    e.preventDefault()
+    console.log(e)
+})

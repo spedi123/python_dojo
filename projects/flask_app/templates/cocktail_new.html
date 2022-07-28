@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!-- my css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='style.css') }}"
+    />
+    <title>Cocktail</title>
+  </head>
+  <body>
+    <div class="wrap">
+        <div class="jumbotron">
+            <h1 class="display-4">Add My Cocktail!</h1>
+            <a href="/logout" class="logout">Logout</a>
+            <a href="/cocktail/mylist" class="logout">Cancel</a>
+            <hr class="my-4">
+        </div>
+        <div class="container">
+            <form action="/cocktail/create" method="post">
+                <div class="mb-3">
+                    <label for="name">Cocktail Name</label>
+                    <input class="form-control" type="text" name="name" id="name" />
+                    {% for message in
+                    get_flashed_messages(category_filter=['err_cocktails_name'])%}
+                    <p class="alert alert-danger">{{ message }}</p>
+                    {% endfor%}
+                  </div>
+                  <div class="mb-3">
+                    <label for="instruction">Instruction</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="instruction"
+                      id="instruction"
+                    />
+                    {% for message in
+                    get_flashed_messages(category_filter=['err_cocktails_instruction'])%}
+                    <p class="alert alert-danger">{{ message }}</p>
+                    {% endfor%}
+                  </div>
+                  <div class="mb-3">
+                    <label for="ingredient">Ingredient</label>
+                    <input class="form-control" type="text" name="ingredient" id="ingredient" />
+                    {% for message in
+                    get_flashed_messages(category_filter=['err_cocktails_ingredient'])%}
+                    <p class="alert alert-danger">{{ message }}</p>
+                    {% endfor%}
+                  </div>
+                  <div class="mb-3">
+                    <label for="img_url">Img_url</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="img_url"
+                      id="img_url"
+                    />
+                    {% for message in
+                    get_flashed_messages(category_filter=['err_cocktails_img_url'])%}
+                    <p class="alert alert-danger">{{ message }}</p>
+                    {% endfor%}
+                  </div>
+                    <button class="btn btn-success">Add Cocktail on My list</button>
+                  </div>  
+            </form>
+        </div>
+    </div>
+
+    <!-- bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <!-- my js -->
+    <script src="static/js/script.js"></script>
+  </body>
+</html>
