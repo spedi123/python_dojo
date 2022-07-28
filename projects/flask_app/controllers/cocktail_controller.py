@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, session
+from flask import render_template, request, redirect, session, jsonify
 from flask_app import app, bcrypt
 # This imports the model file
 from flask_app.models import model_cocktail, model_user
@@ -23,13 +23,36 @@ def cocktail_create():
     if not model_cocktail.Cocktail.validator(request.form):
         return redirect('/cocktail/new')
 
-    # create instument
     data = {
         **request.form,
         'user_id': session['uuid']
     }
     model_cocktail.Cocktail.create(data)
     return redirect('/cocktail/mylist')
+
+
+@app.route('/api/cocktail/create', methods=['POST'])
+def api_cocktail_create():
+    # validations
+    # if not model_cocktail.Cocktail.validator(request.form):
+    #     return redirect('/cocktail/new')
+
+    data = {
+        **request.form,
+        'user_id': session['uuid']
+    }
+    model_cocktail.Cocktail.create(data)
+
+    res = {
+        'msg': 'success!!!!'
+    }
+    return redirect('/cocktail/mylist')
+
+
+@app.route('/test', methods=['POST'])
+def test():
+    print(request.form)
+    return redirect('/dashboard')
 
 
 @app.route('/cocktail/<int:id>')

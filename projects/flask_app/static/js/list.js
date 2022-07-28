@@ -10,7 +10,7 @@ function get_cocktail_list(value) {
             card_list.innerHTML = ''
             for (const key in data.drinks) {
                 let drink = data.drinks[key]
-                let img = drink.strDrinkThumb
+                let img_url = drink.strDrinkThumb
                 let name = drink.strDrink
                 let instruction = drink.strInstructions
                 let ingredients = []
@@ -19,27 +19,26 @@ function get_cocktail_list(value) {
                             ingredients.push(drink[key2])
                         }
                     }
-                    console.log(ingredients)
+                console.log(img_url)
                 card_list.innerHTML += 
                 `
                 <div class="card" style="width: 18rem;">
-                    <img src="${img}" class="card-img-top" alt="...">
+                    <img src="${img_url}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <h5 class="card-title">${name}</h5>
                     <p class="card-instruction">${instruction}</p>
                     <p class="card_ingredient">${ingredients} </p>
                     <a href="#" class="btn btn-primary">View</a>
-                    <button id="save_list" class="btn btn-primary">Save My List</button>
+                    <form action="/api/cocktail/create" method="post" id="cocktail_form">          
+                        <input type="hidden" name="name" value=${name} />
+                        <input type="hidden" name="instruction" value=${instruction}/>
+                        <input type="hidden" name="ingredient" value=${ingredients}/>
+                        <input type="hidden" name="img_url" value=${img_url}/>
+                        <button class="btn btn-success">Save My list</button>
+                    </form>
                 </div>
                 `
             }
         })
         .catch(err => console.log(err) )   
 }
-
-var save_list =  document.querySelector('#save_list')
-
-save_list.addEventListener('click', function(e){
-    e.preventDefault()
-    console.log(e)
-})

@@ -23,11 +23,22 @@ class Cocktail:
 
 # C
 
+
     @classmethod
     def create(cls, data: dict) -> int:
+        if data["img_url"][len(data["img_url"])-1] == "/":
+            new_data = {
+                **data,
+                "img": data["img_url"][0:len(data["img_url"])-1]
+            }
+        else:
+            new_data = {
+                **data,
+                "img": data["img_url"]
+            }
         query = """INSERT INTO cocktails(name, instruction, ingredient, img_url, user_id) 
-                VALUES (%(name)s, %(instruction)s, %(ingredient)s, %(img_url)s, %(user_id)s);"""
-        return connectToMySQL(DATABASE).query_db(query, data)
+                VALUES (%(name)s, %(instruction)s, %(ingredient)s, %(img)s, %(user_id)s);"""
+        return connectToMySQL(DATABASE).query_db(query, new_data)
 
 # R
 
@@ -43,9 +54,10 @@ class Cocktail:
     def get_user_all(cls, data: dict) -> list:
         query = "SELECT * FROM cocktails JOIN users ON cocktails.user_id = users.id WHERE users.id = %(id)s;"
         results = connectToMySQL(DATABASE).query_db(query, data)
-        if results:
-            return cls(results[0])
-        return False
+        all_cocktails = []
+        for cocktail in results:
+            all_cocktails.append(cls(cocktail))
+        return all_cocktails
 
     @classmethod
     def get_all(cls):
@@ -87,7 +99,6 @@ class Cocktail:
 
 
 # D
-
 
     @classmethod
     def delete_one(cls, data: dict) -> None:
