@@ -114,15 +114,15 @@ class Cocktail:
             is_valid = False
 
         if len(data['instruction']) < 1:
-            flash('field is required', 'err_cocktails_time_played')
+            flash('field is required', 'err_cocktails_instruction')
             is_valid = False
 
         if len(data['ingredient']) < 1:
-            flash('field is required', 'err_cocktails_type')
+            flash('field is required', 'err_cocktails_ingredient')
             is_valid = False
 
         if len(data['img_url']) < 1:
-            flash('field is required', 'err_cocktails_avg_price')
+            flash('field is required', 'err_cocktails_img_url')
             is_valid = False
 
         return is_valid

@@ -49,28 +49,42 @@ def api_cocktail_create():
     return redirect('/cocktail/mylist')
 
 
-@app.route('/test', methods=['POST'])
-def test():
-    print(request.form)
-    return redirect('/dashboard')
-
-
-@app.route('/cocktail/<int:id>')
+@app.route('/cocktail/mylist/<int:id>')
 def cocktail_show(id):
-    return render_template('cocktail_show.html')
+    if 'uuid' not in session:
+        return redirect('/')
+
+    cocktail = model_cocktail.Cocktail.get_one({'id': id})
+    data = {
+        'id': session['uuid']
+    }
+    user = model_user.User.get_one(data)
+    return render_template('cocktail_detail.html', cocktail=cocktail, user=user)
 
 
-@app.route('/cocktail/<int:id>/edit')
+@app.route('/cocktail/mylist/<int:id>/edit')
 def cocktail_edit(id):
-    return render_template('cocktail_edit.html')
+    cocktail = model_cocktail.Cocktail.get_one({'id': id})
+    return render_template('cocktail_edit.html', cocktail=cocktail)
 
 
-@app.route('/cocktail/<int:id>/update', methods=['POST'])
+@app.route('/cocktail/mylist/<int:id>/update', methods=['POST'])
 def cocktail_update(id):
-    return redirect('/')
+    if 'uuid' not in session:
+        return redirect('/')
+
+    if not model_cocktail.Cocktail.validator(request.form):
+        return redirect(f'/cocktail/mylist/{id}/edit')
+
+    data = {
+        **request.form,
+        'id': id
+    }
+    model_cocktail.Cocktail.update_one(data)
+    return redirect('/cocktail/mylist')
 
 
-@app.route('/cocktail/<int:id>/delete')
+@app.route('/cocktail/mylist/<int:id>/delete')
 def cocktail_delete(id):
     model_cocktail.Cocktail.delete_one({'id': id})
-    return redirect('/')
+    return redirect('/cocktail/mylist')

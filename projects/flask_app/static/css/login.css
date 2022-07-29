@@ -1,0 +1,20 @@
+body {
+    margin: 30px 100px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+h1 {
+    margin: 50px 0px;
+    text-align: center;
+}
+
+#col-left {
+    background-color: rgb(54,130,250);
+    border-radius: 5%;
+    padding: 30px 40px;
+}
+
+input {
+    margin-bottom: 20px;
+}
