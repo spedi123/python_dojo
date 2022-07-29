@@ -33,6 +33,13 @@
             <p>After work, you should enjoy your life with one glass of cocktail..</p>
             <a id="mylist_button" class="btn btn-primary btn-lg" href="/cocktail/mylist" role="button">My Cocktail List</a>
           </div>
+          <form class="search_form">
+            <label for="name">Search Cocktail Name</label>
+            <input class="form-control" type="text" name="name" id="search_bar" />
+            <button class="btn btn-success">Search</button>
+          </form>
+          <div class="card_show"></div>
+          <br/>
           <div class="alphabet">
             <button onclick="get_cocktail_list(value)" value="a">A</button>
             <button onclick="get_cocktail_list(value)" value="b">B</button>
