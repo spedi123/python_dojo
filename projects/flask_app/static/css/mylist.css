@@ -16,21 +16,17 @@
     background-size: cover;
 }
 
-.logout {
+#button {
     position: absolute;    
     top:20px;
     right:150px;
 }
 
-#mylist_button {
-    margin-bottom: 50px;
-}
 #card-list {
     overflow: scroll;
 }
 
 .card {
-    overflow:scroll;
     height: 600px;
     float: left;
     margin: 10px 5px;

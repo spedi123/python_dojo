@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
     <!-- bootstrap css -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -15,7 +19,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static',filename='style.css') }}"
+      href="{{ url_for('static',filename='css/new.css') }}"
     />
     <title>Cocktail</title>
   </head>
@@ -23,8 +27,10 @@
     <div class="wrap">
         <div class="jumbotron">
             <h1 class="display-4">Add My Cocktail!</h1>
-            <a href="/logout" class="logout">Logout</a>
-            <a href="/cocktail/mylist" class="logout">Cancel</a>
+            <div id="button">
+              <a href="/dashboard" class="btn btn-primary btn-lg">Home</a>
+              <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
+            </div>
             <hr class="my-4">
         </div>
         <div class="container">
@@ -72,6 +78,7 @@
                     {% endfor%}
                   </div>
                     <button class="btn btn-success">Add Cocktail on My list</button>
+                    <a href="/cocktail/mylist" class="btn btn-success">Cancel</a>
                   </div>  
             </form>
         </div>

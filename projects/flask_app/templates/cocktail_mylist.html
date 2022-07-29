@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
     <!-- bootstrap css -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -15,7 +19,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static',filename='style.css') }}"
+      href="{{ url_for('static',filename='css/mylist.css') }}"
     />
     <title>Cocktail</title>
   </head>
@@ -23,12 +27,14 @@
     <div class="wrap">
         <div class="jumbotron">
             <h1 class="display-4">My Cocktail List!</h1>
-            <a href="/logout" class="logout">Logout</a>
-            <a href="/">Home</a>
-            <p class="lead">My favorite cocktail list...</p>
+            <div id="button">
+              <a href="/dashboard" class="btn btn-primary btn-lg">Home</a>
+              <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
+            </div>
+            <p class="lead">Favorite cocktail list...</p>
             <hr class="my-4">
             <a class="btn btn-primary btn-lg" href="/cocktail/new" role="button">Create My Own Cocktail Recipe..</a>
-          </div>
+        </div>
           <div id="card_list">
             {% for cocktail in user_cocktails %}
             <div class="card" style="width: 18rem;">
