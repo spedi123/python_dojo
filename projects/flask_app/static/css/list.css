@@ -1,5 +1,5 @@
 * {
-    font-family: "Stylish", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .wrap {
@@ -7,6 +7,25 @@
     margin: auto;
 }
 
+.jumbotron {
+    color: white;
+    padding: 20px;
+    margin-bottom: 50px;
+    background-image: url(../images/background_img.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+h1 {
+    color:white;
+}
+.logout {
+    position: fixed;    top:20px;
+    right:150px;
+}
+
+#mylist_button {
+    margin-bottom: 50px;
+}
 #card-list {
     overflow: scroll;
 }
@@ -16,4 +35,9 @@
     height: 600px;
     float: left;
     margin: 10px 5px;
+}
+
+#view_button {
+
+
 }

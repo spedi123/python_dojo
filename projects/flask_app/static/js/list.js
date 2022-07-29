@@ -28,7 +28,7 @@ function get_cocktail_list(value) {
                     <h5 class="card-title">${name}</h5>
                     <p class="card-instruction">${instruction}</p>
                     <p class="card_ingredient">${ingredients} </p>
-                    <a href="#" class="btn btn-primary">View</a>
+                    <div id="view_button">
                     <form action="/api/cocktail/create" method="post" id="cocktail_form">          
                         <input type="hidden" name="name" value=${name} />
                         <input type="hidden" name="instruction" value=${instruction}/>
@@ -36,6 +36,7 @@ function get_cocktail_list(value) {
                         <input type="hidden" name="img_url" value=${img_url}/>
                         <button class="btn btn-success">Save My list</button>
                     </form>
+                    </div>
                 </div>
                 `
             }
