@@ -67,14 +67,14 @@ search_form.addEventListener('submit', function(e){
                 }
         card_show.innerHTML += 
         `
-            <div class="card1" style="width: 18rem;">
+            <div class="card" style="width: 18rem;">
                 <img src="${img_url}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-instruction">${instruction}</p>
                 <p class="card_ingredient">${ingredients} </p>
                 <div id="view_button">
-                <form action="/api/cocktail/create" method="post" id="cocktail_form">          
+                <form action="/api/cocktail/create" method="post" id="cocktail_form1">          
                     <input type="hidden" name="name" value=${name} />
                     <input type="hidden" name="instruction" value=${instruction}/>
                     <input type="hidden" name="ingredient" value=${ingredients}/>

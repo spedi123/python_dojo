@@ -25,6 +25,7 @@
 #mylist_button {
     margin-bottom: 50px;
 }
+
 #card-list {
     overflow: scroll;
 }
@@ -34,4 +35,17 @@
     height: 600px;
     float: left;
     margin: 10px 5px;
+}
+.alphabet > button {
+    padding:5px 10px;
+}
+.alphabet {
+    float: left;
+}
+.border_line {
+    width:100%;
+    height:2px;
+    float: left;
+    background-color: red;
+    margin-bottom: 40px;
 }
