@@ -3,16 +3,38 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
-
+#header {
+    display: inline;
+}
+#img {
+    width:200px;
+    height:200px;
+}
 h1 {
     margin: 50px 0px;
     text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #col-left {
     background-color: rgb(54,130,250);
     border-radius: 5%;
     padding: 30px 40px;
+}
+
+#col-right {
+    position: relative;
+    background-color: white;;
+    top: 60px;
+    right: 20px;
+    border: 2px solid black;
+    border-radius: 10%;
+    padding: 30px 40px;
+    height: 400px;
 }
 
 input {
